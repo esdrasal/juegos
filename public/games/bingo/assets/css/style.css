@@ -1,0 +1,71 @@
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f5f5f5;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+    #bingo-container {
+      display: grid;
+      grid-template-columns: repeat(6, 100px);
+      grid-template-rows: repeat(4, 60px);
+      gap: 10px;  
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .cell {
+      background: #fff;
+      border: 2px solid #007BFF;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      user-select: none;
+    }
+    .cell.correct {
+      background-color: #4CAF50; /* verde */
+      color: white;
+    }
+
+    .cell.wrong {
+      background-color: #F44336; /* rojo */
+      color: white;
+    }
+    #current-word {
+      font-size: 24px;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    #resultado {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    #start-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #start-btn:disabled {
+      background: #aaa;
+      cursor: default;
+    }
+.bingo-cell.correct {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.bingo-cell.wrong {
+  background-color: #F44336;
+  color: white;
+}

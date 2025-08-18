@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+
+#sopa-de-letras {
+  display: grid;
+  grid-template-columns: repeat(15, 35px);
+  grid-template-rows: repeat(15, 35px);
+  gap: 2px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cell {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #333;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+
+.cell.found {
+  background-color: #90ee90;
+}
+
+#palabras li {
+  font-size: 18px;
+  margin: 5px 0;
+}
+.cell.selected {
+  background-color: #add8e6; /* azul clarito mientras selecciona */
+}
+
+.cell.found {
+  background-color: #90ee90; /* verde cuando se encuentra */
+}
+
+#palabras li.found {
+  text-decoration: line-through;
+  color: green;
+}
+body { font-family: sans-serif; padding: 20px; }
+#juego-container {
+  display: flex;
+  gap: 20px; /* espacio entre la sopa y la lista */
+  margin: 0 auto;
+  max-width: 800px; /* ancho máximo del contenedor */
+}
+#sopa-de-letras {
+  display: grid;
+  grid-template-columns: repeat(15, 30px);
+  gap: 2px;
+}
+
+#palabras {
+
+  list-style: none;
+  padding: 0 20px 0 0;
+  margin: 15px 0 0 0;
+  overflow-y: auto;  /* permite scroll si hay muchas palabras */
+}
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.cell.selected { background-color: #add8e6; }
+.cell.found { background-color: #90ee90; }
+#palabras li.found { text-decoration: line-through; color: green; }
+
+#regresar-menu {
+  margin-top: 20px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juegos disponibles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .games {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .game-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      width: 200px;
+    }
+    .game-card a {
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido 🎮</h1>
+  <p>Selecciona un juego para empezar:</p>
+
+  <div class="games">
+    <div class="game-card">
+      <h2>Sopa de Letras</h2>
+      <a href="games/sopa_de_letras/">Jugar</a>
+    </div>
+    <div class="game-card">
+      <h2>Ahorcado</h2>
+      <a href="games/ahorcado/index.html">Jugar</a>
+    </div>
+    <div class="game-card">
+      <h2>Memoria</h2>
+      <a href="games/memoria/">Jugar</a>
+    </div>
+  </div>
+</body>
+</html>
