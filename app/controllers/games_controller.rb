@@ -11,6 +11,6 @@ class GamesController < ApplicationController
       @games = []
     end
 
-    render plain: "Available games: #{@games.inspect}"
+    # render plain: "Available games: #{@games.inspect}"
   end
 end
