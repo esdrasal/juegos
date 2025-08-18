@@ -1,3 +1,4 @@
+class GamesController < ApplicationController
 def index
   games_path = Rails.root.join("public", "games")
   if Dir.exist?(games_path)
