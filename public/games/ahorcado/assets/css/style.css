@@ -114,22 +114,45 @@ h1 {
   #game-container {
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;   /* centrado vertical */
     gap: 20px;
+    height: 100vh;         /* ocupa toda la altura de la ventana */
+    max-height: 100vh;
+  }
+
+  #ahorcado-canvas {
+    max-height: 80vh;      /* no más grande que el 80% de la pantalla */
+    max-width: 45vw;       /* no más ancho de la mitad aprox */
     height: auto;
+    width: auto;
   }
 
   #palabra-letras {
+    flex: 1;               /* ocupa el resto del espacio */
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between; /* reparte palabra arriba y letras abajo */
+    max-height: 80vh;
   }
 
   #palabra-container {
-    margin-bottom: 10px;
-    margin-top: 40px;
+    margin: 0;
+    flex-shrink: 1;
+  }
+
+  #palabra-container span {
+    font-size: 2vh;        /* más pequeño en horizontal */
   }
 
   #botones-letras {
-    margin-bottom: 0;
-    max-width: none;
+    width: 100%;
+    grid-template-columns: repeat(9, 1fr);
+    flex-shrink: 1;
+  }
+
+  #botones-letras button {
+    height: 4.5vh;         /* más bajo en horizontal */
+    font-size: 1.8vh;
   }
 }
