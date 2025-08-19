@@ -66,6 +66,8 @@ const teclado = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O
         resultadoDiv.textContent = '🎉 ¡Felicidades! Adivinaste la palabra!';
         resultadoDiv.style.color = 'green';
         botonesContainer.querySelectorAll('button').forEach(b=>b.disabled=true);
+        resultadoDiv.appendChild(restartButton);
+        restartButton.style.display = 'inline-block';
       }
     }
 
@@ -74,6 +76,8 @@ const teclado = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O
         resultadoDiv.textContent = `💀 Perdiste. La palabra era: ${palabra}`;
         resultadoDiv.style.color = 'red';
         botonesContainer.querySelectorAll('button').forEach(b=>b.disabled=true);
+        resultadoDiv.appendChild(restartButton);
+        restartButton.style.display = 'inline-block';
       }
     }
 
@@ -81,6 +85,32 @@ const teclado = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O
     dibujarPalabra();
     dibujarAhorcado();
     actualizarBotones();
+
+    // Crear botón de reinicio
+    const restartButton = document.createElement('button');
+    restartButton.textContent = '🔄 Jugar de nuevo';
+    restartButton.style.display = 'none'; // Oculto al inicio
+
+    restartButton.addEventListener('click', () => {
+      // Reiniciar variables
+      palabra = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
+      letrasUsadas = [];
+      intentos = 6;
+      resultadoDiv.textContent = '';  // limpiamos mensaje
+      resultadoDiv.appendChild(restartButton); // lo volvemos a dejar ahí
+      restartButton.style.display = 'none';
+
+      // Redibujar todo
+      dibujarPalabra();
+      dibujarAhorcado();
+      actualizarBotones();
+    });
+
+    // Insertar el botón dentro del div#resultado
+    resultadoDiv.style.display = 'flex';
+    resultadoDiv.style.flexDirection = 'column';
+    resultadoDiv.style.alignItems = 'center';
+    resultadoDiv.appendChild(restartButton);
 
     // regresar al menu principal
     const backButton = document.createElement('button');
