@@ -1,5 +1,8 @@
 /* Juego del Ahorcado con teclado español latinoamericano */
-    const palabras = ["computadora", "celular", "laptop", "libro", "guitarra", "ventana", "reloj"];
+    const palabras = ["televisor","celular","computadora","laptop","silla",
+      "sofa","lentes","libro","lapicero","cepillo",
+      "guitarra","cuaderno","ventana","carro","casa",
+      "hospital","reloj","mesa","vaso","plato"];
     let palabra = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
     let letrasUsadas = [];
     let intentos = 6;
