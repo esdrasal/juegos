@@ -6,20 +6,18 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Juego del Ahorcado</h1>
+  <h1>Ahorcado</h1>
 
-  <!-- Canvas para el muñeco -->
+<div id="game-container">
   <canvas id="ahorcado-canvas" width="200" height="250"></canvas>
 
-  <!-- Casillas de la palabra -->
-  <div id="palabra-container"></div>
+  <div id="palabra-letras">
+    <div id="palabra-container"></div>
+    <div id="botones-letras"></div>
+  </div>
+</div>
 
-  <!-- Botones de letras -->
-  <div id="botones-letras"></div>
-  
-
-  <!-- Mensaje de victoria/derrota -->
-  <div id="resultado"></div>
+<div id="resultado"></div>
 
   <!-- boton para regresar al menu -->
   <div id="regresar-menu"></div>
