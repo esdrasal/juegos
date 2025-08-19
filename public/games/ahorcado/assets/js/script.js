@@ -14,14 +14,16 @@ const ctx = canvas.getContext("2d");
 
 const teclado = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-// Ajustar canvas al ancho de pantalla
+// Ajustar canvas según ancho y alto disponible
 function ajustarCanvas() {
-  const maxWidth = window.innerWidth * 0.95;
-  canvas.width = Math.min(maxWidth, 400);
-  canvas.height = canvas.width * 1.25; // mantener proporción
+  const maxWidth = window.innerWidth * 0.9;
+  const maxHeight = window.innerHeight * 0.45; // ocupa casi la mitad del alto
+  const scale = Math.min(maxWidth / 200, maxHeight / 250);
+
+  canvas.width = 200 * scale;
+  canvas.height = 250 * scale;
   dibujarAhorcado();
 }
-
 window.addEventListener('resize', ajustarCanvas);
 ajustarCanvas();
 
@@ -35,13 +37,12 @@ function dibujarPalabra(){
   }
 }
 
-// Dibujar ahorcado adaptativo
+// Dibujar ahorcado
 function dibujarAhorcado(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = '#000';
   ctx.lineWidth = 2;
 
-  // Escala proporcional
   const scaleX = canvas.width / 200;
   const scaleY = canvas.height / 250;
 
@@ -74,7 +75,7 @@ function dibujarAhorcado(){
   }
 }
 
-// Botones de letras
+// Botones
 function actualizarBotones(){
   botonesContainer.innerHTML = '';
   teclado.forEach(letra => {
@@ -97,7 +98,7 @@ function adivinarLetra(letra){
   checkDefeat();
 }
 
-// Revisar victoria
+// Victoria / Derrota
 function checkVictory(){
   if([...palabra].every(l => letrasUsadas.includes(l))){
     resultadoDiv.textContent = '🎉 ¡Felicidades! Adivinaste la palabra!';
@@ -107,8 +108,6 @@ function checkVictory(){
     restartButton.style.display = 'inline-block';
   }
 }
-
-// Revisar derrota
 function checkDefeat(){
   if(intentos<=0){
     resultadoDiv.textContent = `💀 Perdiste. La palabra era: ${palabra}`;
@@ -119,7 +118,7 @@ function checkDefeat(){
   }
 }
 
-// Reinicio del juego
+// Reinicio
 const restartButton = document.createElement('button');
 restartButton.textContent = '🔄 Jugar de nuevo';
 restartButton.style.display = 'none';
@@ -136,12 +135,12 @@ restartButton.addEventListener('click', () => {
 });
 resultadoDiv.appendChild(restartButton);
 
-// Inicializar juego
+// Inicializar
 dibujarPalabra();
 dibujarAhorcado();
 actualizarBotones();
 
-// Botón de menú
+// Botón menú
 const backButton = document.createElement('button');
 backButton.textContent = 'Volver al menú principal';
 backButton.addEventListener('click', () => {
