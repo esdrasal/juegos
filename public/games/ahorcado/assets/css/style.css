@@ -1,14 +1,14 @@
 /* Estilos generales */
 body {
   font-family: sans-serif;
-  padding: 20px;
+  margin: 0;
+  padding: 10px;
   text-align: center;
   background-color: #f0f0f0;
-  margin: 0;
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #333;
 }
 
@@ -17,7 +17,10 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-start;
+  height: 90vh; /* ocupa casi toda la pantalla en móviles */
+  gap: 15px;
+  padding: 5px;
 }
 
 /* Contenedor palabra + letras */
@@ -25,33 +28,33 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 95%;
   gap: 10px;
 }
 
 /* Canvas */
 #ahorcado-canvas {
+  width: 90vw;      /* ocupa casi todo el ancho */
+  max-width: 400px; /* no crecer demasiado en desktop */
+  height: auto;     /* mantiene proporción */
   border: 1px solid #000;
   background-color: #fff;
-  display: block;
-  margin: 0 auto;
 }
 
-/* Casillas de la palabra */
+/* Palabra */
 #palabra-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 20px 0;
+  margin-bottom: 10px;
 }
 
 #palabra-container span {
+  min-width: 25px;
   flex: 0 1 auto;
-  min-width: 30px;
-  max-width: 50px;
+  font-size: 2.5vh; /* escala según altura pantalla */
   border-bottom: 2px solid #000;
-  display: inline-block;
-  font-size: 2em;
   text-align: center;
   text-transform: uppercase;
   padding: 2px 4px;
@@ -60,17 +63,15 @@ h1 {
 /* Botones de letras */
 #botones-letras {
   display: grid;
-  grid-template-columns: repeat(9, 1fr); /* 3 filas de 9 letras aprox */
-  gap: 4px;
-  justify-items: center;
-  max-width: 360px;
-  margin: 0 auto 20px auto;
+  grid-template-columns: repeat(9, 1fr); /* 3 filas de letras aprox */
+  gap: 3px;
+  width: 100%;
 }
 
 #botones-letras button {
   width: 100%;
-  height: 40px;
-  font-size: 1em;
+  height: 5vh;       /* altura proporcional */
+  font-size: 2vh;    /* fuente proporcional */
   cursor: pointer;
   border: 1px solid #333;
   border-radius: 4px;
@@ -92,39 +93,20 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  font-size: 1.5em;
+  font-size: 2.5vh;
   font-weight: bold;
+  margin-top: 5px;
 }
 
-/* Mensaje de derrota */
 #resultado.lose {
   color: red;
 }
 
 #resultado button {
-  margin-top: 10px;
-  padding: 8px 12px;
-  font-size: 1em;
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 2vh;
   cursor: pointer;
-}
-
-/* Ajustes móviles */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5em;
-  }
-
-  #palabra-container span {
-    min-width: 20px;
-    font-size: 1.5em;
-    padding: 1px 2px;
-  }
-
-  #botones-letras button {
-    height: 35px;
-    font-size: 0.9em;
-  }
 }
 
 /* Landscape: canvas a la izquierda, palabra+letras a la derecha */
@@ -134,6 +116,7 @@ h1 {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+    height: auto;
   }
 
   #palabra-letras {
